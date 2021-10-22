@@ -1,23 +1,30 @@
+/*elements universal across the page*/
+
+* {
+  box-sizing: border-box;
+}
+
 a {
   text-decoration: none;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
+/*elements for the header and nav bar*/
 header {
-  width: 100%;
-  height: 100px;
-  background-image: url(https://unsplash.com/photos/_HJNQCoXVkU);
-  background-size: contain;
+  background-image: url("../assets/images/mountains-header-2.jpg");
+  min-height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
 .navbar {
   display: inline-block;
   align-items: center;
 }
 
 .navbar a {
-  color: #530231;
+  color: #fdebf6;
 }
 
 .navbar ul {
@@ -30,52 +37,125 @@ header {
 }
 
 .navbar .nav-header {
-  display: block;
-  color: #530231;
-  padding: 0 50px;
+  color: #fdebf6;
+  padding: 10px 50px;
   font-size: 50px;
 }
 
 .navbar ul li a {
-  color: #530231;
-  padding: 50px;
-  display: block;
+  color: #fdebf6;
+  padding: 10px;
+  margin: 20px;
+  font-size: 30px;
+  display: flex;
+  flex: 25%;
+  justify-content: space-around;
 }
 
 .navbar ul a:hover,
 .navbar ul a:focus {
-  background-color: #ffdcf0;
+  background-color: #f8e6f0;
+  color: #530231;
 }
+
+/*images*/
+img {
+  display: flex;
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.row {
+  display: flex;
+  position: relative;
+}
+
+.column {
+  float: left;
+  background-color: black;
+  width: 25%;
+  padding: 5px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+/*body and section styling*/
+
+body {
+  border: 5px solid black;
+  background-color: #ffffff;
+}
+
+section {
+  margin: 10px;
+  padding: 20px;
+}
+
+/*media queries*/
 
 @media screen and (max-width: 768px) {
   header {
+    background-image: none;
     background-color: thistle;
   }
   .navbar {
-    text-align: center;
+    color: #530231;
     padding: 20px;
   }
+  .nav-header {
+    color: #530231;
+  }
   .navbar ul li a {
-    padding: 20px;
+    color: #530231;
+    padding: 10px;
+    font-size: 20px;
     flex-wrap: nowrap;
     flex-direction: column;
   }
+
+  .column {
+    display: block;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .row {
+    display: flex;
+  }
+}
+
+img {
+  max-width: 300px;
+  max-height: 300px;
 }
 
 @media screen and (max-width: 576px) {
   header {
     background-color: thistle;
   }
+
+  .column {
+    width: 100%;
+    display: block;
+  }
+
   .nav-header {
-    text-align: start;
+    color: #530231;
+    text-align: center;
     margin: 0;
     padding-left: 0;
   }
   .navbar {
-  }
-
-  .navbar ul {
+    display: flex;
+    color: #530231;
+    text-align: center;
+    justify-content: space-between;
   }
   .navbar ul li a {
+    color: #530231;
+    padding: 10px;
   }
 }
