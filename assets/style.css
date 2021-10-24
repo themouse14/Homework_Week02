@@ -61,12 +61,13 @@ header {
 /*images*/
 img {
   display: flex;
-  max-width: 150px;
-  max-height: 150px;
+  max-width: 300px;
+  max-height: 300px;
 }
 
 .row {
   display: flex;
+  flex-wrap: wrap;
   position: relative;
 }
 
@@ -75,6 +76,7 @@ img {
   background-color: black;
   width: 25%;
   padding: 5px;
+  align-items: center;
 }
 
 .row::after {
@@ -82,6 +84,13 @@ img {
   clear: both;
   display: table;
 }
+
+#main-project {
+  max-width: 500px;
+  max-height: 500px;
+  border: 2px solid black;
+}
+
 /*body and section styling*/
 
 body {
@@ -94,6 +103,51 @@ section {
   padding: 20px;
 }
 
+.row2 {
+  display: flex;
+}
+
+.col-12 {
+  display: block;
+  flex: 3 1 0;
+}
+
+.col-4 {
+  display: flex;
+  float: none;
+}
+
+#about-me-section {
+  background-color: ivory;
+  border: 2px solid black;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+#my-work-section {
+  background-color: rgb(238, 170, 227);
+}
+
+#resume-section {
+  background-color: ivory;
+  margin: 5px;
+  padding: 5px;
+  border: 2px solid black;
+}
+
+#contact-section {
+  background-color: ivory;
+  margin: 5px;
+  padding: 5px;
+  border: 2px solid black;
+}
+
+#email:hover,
+#github:hover,
+#linkedin:hover {
+  cursor: pointer;
+}
+
 /*media queries*/
 
 @media screen and (max-width: 768px) {
@@ -102,6 +156,8 @@ section {
     background-color: thistle;
   }
   .navbar {
+    float: left;
+    display: block;
     color: #530231;
     padding: 20px;
   }
@@ -117,19 +173,22 @@ section {
   }
 
   .column {
+    flex: 50%;
+    float: left;
     display: block;
-    flex-wrap: wrap;
-    width: 100%;
+    padding: 10px;
+    width: 50%;
   }
 
   .row {
     display: flex;
   }
-}
 
-img {
-  max-width: 300px;
-  max-height: 300px;
+  img {
+    min-width: 200px;
+    min-height: 200px;
+    flex-wrap: wrap;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -139,7 +198,10 @@ img {
 
   .column {
     width: 100%;
-    display: block;
+  }
+
+  .row {
+    flex-direction: column;
   }
 
   .nav-header {
